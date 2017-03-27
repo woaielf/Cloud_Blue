@@ -27,7 +27,7 @@ def get_history(lastTime, period=100, frequency='1day', field='close',
     
     marketType:okcoin_btc_cny,(okcoin_ltc_cny,huobi_btc_cny等未开发)
     """
-    conn = mysql.connector.connect(user='root', password='939672',
+    conn = mysql.connector.connect(user='root', password='',
                                    database='okcoin_btc_cny')
     cursor = conn.cursor()
     
@@ -54,7 +54,7 @@ def update_database():
 def update_database_day_1():
     okcoinRESTURL = 'www.okcoin.cn'
     BTC_Market = OKCoinSpotMarket(okcoinRESTURL,'btc_cny')
-    conn = mysql.connector.connect(user='root', password='939672',
+    conn = mysql.connector.connect(user='root', password='',
                                    database='okcoin_btc_cny')
     cursor = conn.cursor()
     
@@ -130,7 +130,7 @@ def update_database_day_1():
 def update_database_hour_1():
     okcoinRESTURL = 'www.okcoin.cn'
     BTC_Market = OKCoinSpotMarket(okcoinRESTURL,'btc_cny')
-    conn = mysql.connector.connect(user='root', password='939672',
+    conn = mysql.connector.connect(user='root', password='',
                                    database='okcoin_btc_cny')
     cursor = conn.cursor()
     
@@ -206,7 +206,7 @@ def update_database_hour_1():
 def update_database_week_1():
     okcoinRESTURL = 'www.okcoin.cn'
     BTC_Market = OKCoinSpotMarket(okcoinRESTURL,'btc_cny')
-    conn = mysql.connector.connect(user='root', password='939672',
+    conn = mysql.connector.connect(user='root', password='',
                                    database='okcoin_btc_cny')
     cursor = conn.cursor()
     
@@ -282,7 +282,7 @@ def update_database_week_1():
 def update_database_min_15():
     okcoinRESTURL = 'www.okcoin.cn'
     BTC_Market = OKCoinSpotMarket(okcoinRESTURL,'btc_cny')
-    conn = mysql.connector.connect(user='root', password='939672',
+    conn = mysql.connector.connect(user='root', password='',
                                    database='okcoin_btc_cny')
     cursor = conn.cursor()
     
