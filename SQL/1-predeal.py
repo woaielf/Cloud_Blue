@@ -1,8 +1,8 @@
 # predeal the user_data
 # 'user_id', 'age_left', 'age_right', 'sex', 'user_lv_cd', 'user_reg_dt'
 
-infile = open(r"D:\02\JData_User.csv", 'r')
-outfile = open(r"D:\02\1-data\user.txt", 'w')
+infile = open("C:/JData/data/JData_User.csv", 'r')
+outfile = open("C:/JData/data/user.txt", 'w')
 
 count = 0
 error = 0
@@ -30,11 +30,11 @@ outfile.close()
 # 'user_id,sku_id,time,model_id,type,cate,brand\n'
 
 period = ['_201602', '_201603', '_201603_extra', '_201604']
-outfile = open(r"D:\02\1-data\action.txt", 'w')
+outfile = open("C:/JData/data/action.txt", 'w')
 
 count = 0
 for time in period:
-    infile = open('D:/02/JData_Action%s.csv' % time, 'r')
+    infile = open('C:/JData/data/JData_Action%s.csv' % time, 'r')
     line = infile.readline()
     line = infile.readline()
     while line:
@@ -53,8 +53,8 @@ print "count: %d" % count
 import os
 files = ['JData_Product', 'JData_Comment']
 for file in files:
-    infile = open("D:/02/%s.csv" % file, 'r')
-    outfile = open('D:/02/1-data/%s.txt' % file, 'w')
+    infile = open("C:/JData/data/%s.csv" % file, 'r')
+    outfile = open('C:/JData/data/%s.txt' % file, 'w')
     line = infile.readline()
     line = infile.readline()
     while line:
@@ -64,5 +64,5 @@ for file in files:
     infile.close()
     outfile.close()
 
-os.rename('D:/02/1-data/%s.txt' % 'JData_Product', 'D:/02/1-data/%s.txt' % 'product')
-os.rename('D:/02/1-data/%s.txt' % 'JData_Comment', 'D:/02/1-data/%s.txt' % 'comment')
+os.rename('C:/JData/data/%s.txt' % 'JData_Product', 'C:/JData/data/%s.txt' % 'product')
+os.rename('C:/JData/data/%s.txt' % 'JData_Comment', 'C:/JData/data/%s.txt' % 'comment')
