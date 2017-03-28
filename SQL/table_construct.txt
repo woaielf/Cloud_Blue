@@ -1,5 +1,8 @@
+CREATE TABLE jdata;
+use jdata;
+
+
 CREATE TABLE user(
-    id INT auto_increment NOT NULL,
     user_id INT NOT NULL,
     age_left TINYINT NOT NULL,
     age_right TINYINT NOT NULL,
@@ -9,22 +12,8 @@ CREATE TABLE user(
     PRIMARY KEY(user_id)
 ) CHARSET='utf8' ENGINE=INNODB;
 
-load data local infile "D:/02/1-data/user.csv" into table user LINES TERMINATED BY '\r\n' (user_id, age_left, age_right, sex, user_lv_cd, user_reg_dt);
+load data local infile "D:/02/1-data/user.txt" into table user LINES TERMINATED BY '\r\n' (user_id, age_left, age_right, sex, user_lv_cd, user_reg_dt);
 
-
-CREATE TABLE actions(
-    id INT auto_increment NOT NULL,
-    user_id INT NOT NULL,
-    sku_id INT NOT NULL,
-    time DATETIME,
-    model_id SMALLINT,
-    type TINYINT,
-    cate TINYINT,
-    brand SMALLINT,
-    PRIMARY KEY(id)
-) CHARSET='utf8' ENGINE=INNODB;
-
-load data local infile "D:/02/1-data/action.csv" into table actions LINES TERMINATED BY '\r\n' (id, user_id, sku_id, time, model_id, type, cate, brand);
 
 
 CREATE TABLE comment(
@@ -37,18 +26,37 @@ CREATE TABLE comment(
     PRIMARY KEY(id,sku_id)
 ) CHARSET='utf8' ENGINE=INNODB;
 
-load data local infile "D:/02/1-data/comment.csv" into table comment LINES TERMINATED BY '\r\n' (dt, sku_id, comment_num, has_bad_comment, bad_comment_rate);
+load data local infile "D:/02/1-data/comment.txt" into table comment LINES TERMINATED BY '\r\n' (dt, sku_id, comment_num, has_bad_comment, bad_comment_rate);
+
 
 
 CREATE TABLE product(
-    id INT auto_increment NOT NULL,
     sku_id INT NOT NULL,
     attr1 TINYINT NOT NULL,
     attr2 TINYINT NOT NULL,
     attr3 TINYINT NOT NULL,
     cate TINYINT NOT NULL,
     brand SMALLINT NOT NULL,
-    PRIMARY KEY(id,sku_id)
+    PRIMARY KEY(sku_id)
 ) CHARSET='utf8' ENGINE=INNODB;
 
-load data local infile "D:/02/1-data/product.csv" into table product LINES TERMINATED BY '\r\n' (sku_id, attr1, attr2, attr3, cate, brand);
+load data local infile "D:/02/1-data/product.txt" into table product LINES TERMINATED BY '\r\n' (sku_id, attr1, attr2, attr3, cate, brand);
+
+
+
+CREATE TABLE actions(
+    id INT auto_increment NOT NULL,
+    user_id INT NOT NULL,
+    sku_id INT NOT NULL,
+    time DATETIME,
+    model_id VARCHAR(10) NOT NULL DEFAULT '',
+    type TINYINT,
+    cate TINYINT,
+    brand SMALLINT,
+    PRIMARY KEY(id)
+) CHARSET='utf8' ENGINE=INNODB;
+
+load data local infile "D:/02/1-data/action.txt" into table actions LINES TERMINATED BY '\r\n' (user_id, sku_id, time, model_id, type, cate, brand);
+
+
+
