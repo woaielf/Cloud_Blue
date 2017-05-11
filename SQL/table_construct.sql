@@ -1,5 +1,5 @@
-CREATE TABLE jdata;
-use jdata;
+CREATE DATABASE JData;
+use JData;
 
 
 CREATE TABLE user(
